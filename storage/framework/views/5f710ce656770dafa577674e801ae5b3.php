@@ -1,0 +1,1 @@
+<?php /**PATH /home/yoshito/Projects/vote/resources/views/frontend/partials/header.blade.php ENDPATH**/ ?>

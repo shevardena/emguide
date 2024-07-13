@@ -1,0 +1,502 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Avenir Next Georgian';
+    src: url(../fonts/AvenirNextGeorgian-Regular.woff) format("woff");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Avenir Next Georgian Medium';
+    src: url(../fonts/AvenirNextGeorgian-Medium.a79d49a7.otf)
+}
+
+@font-face {
+    font-family: 'Avenir Next Bold';
+    src: url(../fonts/AvenirNextGeorgian-Bold.9fb63d6f.otf)
+}
+
+@font-face {
+    font-family: 'Avenir Next Light';
+    src: url(../fonts/AvenirNextGeorgian-Light.81138dcc.otf)
+}
+
+@font-face {
+    font-family: 'Avenir Next Georgian Xtrabold';
+    src: url(../fonts/AvenirNextGeorgian-XtraBd.1ffb9ded.otf)
+}
+
+body {
+    background: linear-gradient(0deg, rgba(11, 14, 32, 0.05) 0%, rgba(11, 14, 32, 0.05) 100%), #FFF;
+}
+
+.font-avenir-regular {
+    font-family: 'Avenir Next Georgian', serif;
+}
+
+body{
+    background: url('../../public/images/bg.png') no-repeat top center/contain;
+    min-height: 700px;
+    background-color: #fff;
+}
+.page-title{
+    color: #FFF;
+    text-align: center;
+    margin-top: 150px;
+    font-family: "Avenir Next Georgian";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: lowercase;
+}
+.form-container{
+    min-width: 70%;
+}
+.form-control{
+    margin-bottom: 12px;
+}
+.form-control label div{
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}
+.form-control input{
+    font-family: Avenir Next Georgian Medium;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.89px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    min-height: 52px;
+    color: #070A14;
+    padding: 16px 24px;
+}
+.choices__inner{
+    height: 52px;
+    font-family: Avenir Next Georgian Medium!important;
+    font-size: 14px!important;
+    font-weight: 500!important;
+    line-height: 19.89px!important;
+    text-align: left!important;
+    background-color: #fff!important;
+    border-radius: 12px!important;
+    border: 0!important;
+    outline: 0!important;
+    box-shadow: none!important;
+    min-height: 52px!important;
+    color: #070A14;
+    padding: 16px 24px!important;
+}
+.choices__list.choices__list--dropdown.is-active{
+    margin-top: 8px!important;
+    border-radius: 5px!important;
+    background: #FFF!important;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08)!important;
+    border: 0!important;
+}
+.choices__item.choices__item--choice.choices__item--selectable{
+    color: #070A14!important;
+    font-family: "Avenir Next Georgian"!important;
+    font-size: 14px!important;
+    font-style: normal!important;
+    font-weight: 500!important;
+    line-height: normal!important;
+}
+.form-control input:hover,
+.form-control input:focus{
+    border: 0;
+    box-shadow: none;
+    outline: 0;
+}
+.p.text-red-600{
+    color: #EF3556;
+    font-family: "Avenir Next Georgian";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: lowercase;
+}
+p.text-red-600:before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px; /* Adjust as needed */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuODc1IDkuNjI1QzcuODc1IDEwLjEwODIgNy40ODMyMyAxMC41IDcgMTAuNUM2LjUxNjcxIDEwLjUgNi4xMjUgMTAuMTA4MiA2LjEyNSA5LjYyNUM2LjEyNSA5LjE0MTc3IDYuNTE2NzEgOC43NSA3IDguNzVDNy40ODMyMyA4Ljc1IDcuODc1IDkuMTQxNzcgNy44NzUgOS42MjVaIiBmaWxsPSIjRUYzNTU2Ii8+CjxwYXRoIGQ9Ik02Ljc1ODk0IDQuNjY2NjZDNi40MTc2MyA0LjY2NjY2IDYuMTQ5MjQgNC45NTgzNCA2LjE3NzU5IDUuMjk4NDRMNi4zOTQzNiA3Ljg5OTJDNi40MDY5NiA4LjA1MDQgNi41MzMxIDguMTY2NjYgNi42ODQ5OCA4LjE2NjZINy4zMTQ5MkM3LjQ2NjU5IDguMTY2NjYgNy41OTI5OSA4LjA1MDQgNy42MDU1OSA3Ljg5OTJMNy44MjIzIDUuMjk4NDRDNy44NTA2NSA0Ljk1ODM0IDcuNTgyNiA0LjY2NjY2IDcuMjQxMDEgNC42NjY2Nkg2Ljc1ODk0WiIgZmlsbD0iI0VGMzU1NiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTUuNDgwNiAxLjQ4MzMyQzYuMTUyNCAwLjMwNzY0NCA3Ljg0NzYyIDAuMzA3NjQ0IDguNTE5NDUgMS40ODMzMkwxMy41MDkgMTAuMjE1MkMxNC4xNzU3IDExLjM4MTggMTMuMzMzMyAxMi44MzM0IDExLjk4OTYgMTIuODMzNEgyLjAxMDQwMUMwLjY2NjcwOSAxMi44MzM0IC0wLjE3NTY4NCAxMS4zODEgMC40OTA5NzMgMTAuMjE1Mkw1LjQ4MDYgMS40ODMzMlpNNy41MDY0OSAyLjA2MjE1QzcuMjgyNTUgMS42NzAyNiA2LjcxNzQ3IDEuNjcwMjYgNi40OTM1MyAyLjA2MjE1TDEuNTAzOTIgMTAuNzk0QzEuMjgxNzEgMTEuMTgyOCAxLjU2MjUgMTEuNjY2NyAyLjAxMDQwIDEyLjA2NjdIMTEuOTg5NkMxMi40Mzc1IDExLjY2NjcgMTIuNzE4MyAxMS4xODI4IDEyLjQ5NjEgMTAuNzk0TDcuNTA2NDkgMi4wNjIxNVoiIGZpbGw9IiNFRjM1NTYiLz4KPC9zdmc+Cg==');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(2px);
+}
+
+.form-title{
+    font-family: Avenir Next Georgian;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28.42px;
+    text-align: left;
+    color: #070A14;
+    margin-bottom: 32px;
+}
+.contact-info{
+}
+.separator{
+    margin: 52px 0;
+}
+.vote-title{
+    margin-bottom: 52px;
+}
+.questionnaire{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.questionnaire.first,
+.questionnaire.third{
+    margin-bottom: 52px;
+}
+.questionnaire.second{
+    margin-bottom: 24px;
+}
+.questionnaire.third{
+    margin-top: 52px;
+}
+.label-count{
+    background: #3453F91A;
+    color: #3453F9;
+    font-family: Avenir Next Georgian;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22.74px;
+    margin-right: 15px;
+}
+.form-label{
+    font-family: Avenir Next Georgian;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28.42px;
+    text-align: left;
+    color: #070A14;
+}
+.radio-label{
+    font-family: Avenir Next Georgian;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25.58px;
+    color: #070A14;
+}
+.radio-input-cointainer,
+.radio-input-item
+{
+    display: flex;
+    align-items: center;
+}
+.radio-input-item.first{
+    margin-right: 12px;
+}
+.radio-input{
+    width: 24px;
+    height: 24px;
+    background-color: #070A141A;
+    border: 0;
+}
+.radio-input:checked{
+    color: #23AD61;
+}
+
+.radio-input:hover,
+.radio-input:focus{
+    outline: 0;
+    box-shadow: none;
+}
+
+.textarea-input textarea{
+    color: rgba(7, 10, 20, 0.60);
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Avenir Next Georgian";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #070A1499;
+    padding: 30px;
+    background-color: #fff;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    min-height: 174px;
+    border-radius: 12px;
+}
+
+.textarea-input textarea:hover,
+.textarea-input textarea:focus{
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+.file-upload-container{
+    padding: 44px;
+    border-radius: 12px;
+}
+.file-upload-container a{
+    display: flex;
+    width: 194px;
+    padding: 63px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 24px;
+    border: 1px dashed #3453F9;
+    background: rgba(52, 83, 249, 0.05);
+    color: #3453F9;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Avenir Next Georgian";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-right: 24px;
+}
+.fileupload-title{
+    color: #070A14;
+    font-family: "Avenir Next Georgian Medium";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    max-width: 185px;
+}
+.checkbox-input{
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #23AD61;
+}
+.checkbox-input:checked:focus,
+.checkbox-input:checked:hover{
+    background-color: #23AD61;
+}
+.checkbox-input:checked{
+    background-color: #23AD61;
+}
+.checkbox-input:hover,
+.checkbox-input:focus,
+.checkbox-input:checked{
+    outline: 0;
+    box-shadow: none;
+}
+.agremeent-container span{
+    color: #070A14;
+    font-family: "Avenir Next Georgian";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.submit-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.submit-button{
+    display: flex;
+    width: 260px;
+    padding: 23px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: #3453F9;
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Avenir Next Georgian";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #ffffff;
+    margin-top: 52px;
+    max-height: 52px;
+}
+.footer{
+    width: 100%;
+    height: 112px;
+    background-color: #070A14;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 195px;
+}
+
+.links{
+    color: #fff;
+    gap: 24px;
+}
+.links a{
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Avenir Next Georgian";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social{
+    gap: 24px;
+    transition: 0.5s;
+}
+
+.links a:hover,
+.social a:hover{
+    opacity: 0.5;
+}
+.file-upload-desktop{
+    display: block;
+}
+.file-upload-mobile{
+    display: none;
+}
+@media (max-width: 768px) {
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    body{
+        background: url('../../public/images/background_mobile.png') no-repeat top center/contain;
+        min-height: 150px;
+        background-color: #FAFBFD;
+    }
+    .form-title{
+        color: #070A14;
+        font-family: "Avenir Next Georgian";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .form-container{
+        padding: 32px 16px 32px 16px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    .page-title{
+        padding-bottom: 20px;
+    }
+    .label-count{
+        display: none;
+    }
+    .vote-title{
+        display: none;
+    }
+    .form-label{
+        font-family: Avenir Next Georgian;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19.89px;
+        text-align: left;
+        width: 100%;
+    }
+    .questionnaire{
+        display: block;
+    }
+    .separator{
+        margin: 32px 0;
+    }
+    .radio-input-cointainer
+    {
+        display: block;
+    }
+    .radio-input-item.first{
+        margin-right: 0;
+    }
+    .radio-input-item{
+        margin: 20px 0;
+        justify-content: space-between;
+    }
+    .radio-label {
+        color: rgba(7, 10, 20, 0.60);
+        font-family: "Avenir Next Georgian";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    textarea{
+        min-height: 172px;
+    }
+    .fileupload-title {
+        color: #070A14;
+        font-family: "Avenir Next Georgian Medium";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        max-width: 100%;
+    }
+    .checkbox-input{
+        transform: translateY(8px);
+    }
+    .agremeent-container{
+        align-items: normal;
+    }
+    .agremeent-container span {
+        color: #070A14;
+        leading-trim: both;
+        text-edge: cap;
+        font-family: "Avenir Next Georgian";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .file-upload-desktop{
+        display: none;
+    }
+    .file-upload-mobile{
+        display: block;
+        width: 100%;
+    }
+    .file-upload-container{
+        padding: 20px 16px;
+    }
+    .file-upload-container a{
+        width: 100%;
+        margin-top: 20px;
+        min-height: 210px;
+        padding: 76px 24px;
+    }
+    .submit-container{
+        display: block;
+        width: 100%;
+    }
+    .submit-button{
+        width: 100%;
+    }
+}
+

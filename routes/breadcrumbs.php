@@ -3,6 +3,7 @@
 use App\Models\Athlete;
 use App\Models\BackendUser;
 use App\Models\Post;
+use App\Models\RegistrationForm;
 use App\Models\Setting;
 use App\Models\SportType;
 use App\Models\Tag;
@@ -149,20 +150,21 @@ Breadcrumbs::for('sport_types.edit', function (BreadcrumbTrail $trail,  SportTyp
     $trail->push($sport_type->title);
 });
 
-// Settings
-Breadcrumbs::for('settings.index', function (BreadcrumbTrail $trail) {
+// Registration forms
+Breadcrumbs::for('registration_forms.index', function (BreadcrumbTrail $trail) {
     $trail->parent('backend.dashboard');
-    $trail->push('Settings', route('settings.index'));
+    $trail->push('Registration Forms', route('registration_forms.index'));
 });
 
-Breadcrumbs::for('settings.create', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('registration_forms.create', function (BreadcrumbTrail $trail) {
     $trail->parent('backend.dashboard');
-    $trail->parent('settings.index');
+    $trail->parent('registration_forms.index');
     $trail->push('Create');
 });
 
-Breadcrumbs::for('settings.edit', function (BreadcrumbTrail $trail, Setting $setting) {
+Breadcrumbs::for('registration_forms.edit', function (BreadcrumbTrail $trail, int $registration_form) {
+    $registration_form = RegistrationForm::findOrFail($registration_form);
     $trail->parent('backend.dashboard');
-    $trail->parent('settings.index');
-    $trail->push($setting->type);
+    $trail->parent('registration_forms.index');
+    $trail->push($registration_form->email);
 });

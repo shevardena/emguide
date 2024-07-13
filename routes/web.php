@@ -1,18 +1,13 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminsController;
-use App\Http\Controllers\Backend\AthleteController;
 use App\Http\Controllers\Backend\BackendLoginController;
-use App\Http\Controllers\Backend\PostController;
-use App\Http\Controllers\Backend\SettingsController;
-use App\Http\Controllers\Backend\SportTypeController;
-use App\Http\Controllers\Frontend\PostController as FrontendPostController;
-use App\Http\Controllers\Backend\TagController;
+use App\Http\Controllers\Backend\RegistrationFormController;
+use App\Http\Controllers\Frontend\FrontendRegistrationFormController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionsController;
 use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,11 +70,14 @@ Route::middleware(['splade'])->group(function () {
         // Permissions
         Route::resource('permissions', PermissionsController::class)->except('show');
 
+        // Registration Forms
+        Route::resource('registration_forms', RegistrationFormController::class)->except('show');
+
     });
 
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
-    Route::post('/saveForm', [HomeController::class, 'saveForm'])->name('home.saveForm');
+    Route::post('/store', [FrontendRegistrationFormController::class, 'store'])->name('registrationForm.store');
     Route::get('/cities/{country_id}', [HomeController::class, 'getCities'])->name('home.cities');
 
 });

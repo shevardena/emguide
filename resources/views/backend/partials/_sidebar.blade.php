@@ -12,6 +12,15 @@
                         <span class="ml-3">Dashboard</span>
                         </Link>
                     </li>
+                    @can('view registration forms')
+                    <li>
+                        <Link href="/backend/registration_forms"
+                              class="{{ request()->is('backend/registration_forms*') ? 'bg-cyan-700 text-white' : 'text-cyan-700' }} text-base font-normal rounded-md flex items-center p-2 hover:text-white hover:bg-cyan-700 group">
+                        <i class="fa-solid fa-file hover:text-gray-900"></i>
+                        <span class="ml-3">Registration Forms</span>
+                        </Link>
+                    </li>
+                    @endcan('view registration forms')
                 </ul>
                 <div class="space-y-2 pt-2">
                     @can('view administrators')

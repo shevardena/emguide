@@ -6,26 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('registration_forms', function (Blueprint $table) {
             $table->id();
-            $table->string('country');
-            $table->string('city');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('city_id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('id_code');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone');
-            $table->boolean('consular_registration');
-            $table->boolean('voting_intention');
-            $table->text('voting_reason')->nullable();
-            $table->boolean('registration_help');
+            $table->boolean('registered_to_participate_in_elections');
+            $table->boolean('registration_help')->nullable();
+            $table->string('id_code')->nullable();
+            $table->boolean('consular_registration')->nullable();
+            $table->boolean('later_registration')->nullable();
+            $table->boolean('transportation_help');
             $table->boolean('agreement');
             $table->timestamps();
+
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
         });
     }
 

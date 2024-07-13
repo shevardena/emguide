@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\Frontend\SaveFormRequest;
+use App\Http\Requests\Frontend\FrontendStoreRegistrationFormRequest;
 use App\Models\City;
 use App\Models\Country;
 use App\Services\Frontend\HomeService;
@@ -25,7 +25,7 @@ class HomeController
         return view('frontend.pages.about');
     }
 
-    public function saveForm(SaveFormRequest $request){
+    public function saveForm(FrontendStoreRegistrationFormRequest $request){
 
     }
 

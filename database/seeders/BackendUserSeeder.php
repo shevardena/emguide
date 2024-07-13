@@ -15,11 +15,11 @@ class BackendUserSeeder extends Seeder
     {
         $data = [
             [
-                'first_name' => 'Admin',
-                'last_name' => 'Admin',
-                'login' => 'admin',
-                'password' => Hash::make('password1!#'),
-                'email' => 'mail@example.com',
+                'first_name' => 'Emguide',
+                'last_name' => 'Emguide',
+                'login' => 'emguide',
+                'password' => Hash::make('emguidePassword1!#'),
+                'email' => 'bshengleia!@gmail.com',
                 'super_admin' => true,
             ],
         ];

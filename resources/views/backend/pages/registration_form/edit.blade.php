@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row mt-4">
-                <x-splade-file name="images[]" multiple filepond preview class="w-full sm:w-1/2 mr-8 mt-4 sm:mt-0" label="Other Images" />
+                <x-splade-file disabled name="images[]" multiple filepond preview class="w-full sm:w-1/2 mr-8 mt-4 sm:mt-0" label="Other Images" />
             </div>
             <div class="mt-6 mb-2">
                 <a class="p-3  rounded-sm text-white bg-blue-500" href="{{ route('registration_forms.index') }}">

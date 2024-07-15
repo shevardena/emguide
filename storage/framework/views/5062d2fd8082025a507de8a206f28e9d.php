@@ -345,7 +345,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\File::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'w-full sm:w-1/2 mr-8 mt-4 sm:mt-0']); ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mr-8 mt-4 sm:mt-0']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal4cd41e82379e83253fe439725f650e27)): ?>

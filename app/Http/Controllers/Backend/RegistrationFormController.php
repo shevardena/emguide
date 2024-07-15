@@ -14,6 +14,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use ProtoneMedia\Splade\Facades\Toast;
+use ProtoneMedia\Splade\FileUploads\ExistingFile;
 
 class RegistrationFormController extends Controller
 {
@@ -76,8 +77,11 @@ class RegistrationFormController extends Controller
      */
     public function edit(int $registration_form): \Illuminate\Foundation\Application|View|Factory|Application
     {
+        $model = $this->registrationFormRepository->find($registration_form);
+        $model->images = ExistingFile::fromMediaLibrary($model->getMedia('images'));
+
         return view('backend.pages.registration_form.edit',[
-            'registration_form' => $this->registrationFormRepository->find($registration_form),
+            'registration_form' => $model,
             'countries' => Country::all()
         ]);
     }

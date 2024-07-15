@@ -12,7 +12,8 @@
                                  option-label="name" option-value="id" placeholder="ქვეყანა"
                                  class="form-control col-span-1"/>
                 <x-splade-select name="city_id" :choices="['searchEnabled' => false ]" option-label="name"
-                                 option-value="id" choices remote-url="`/cities/${form.country_id}`" placeholder="ქალაქი"
+                                 option-value="id" choices remote-url="`/cities/${form.country_id}`"
+                                 placeholder="ქალაქი"
                                  class="form-control col-span-1"/>
                 <x-splade-input name="first_name" placeholder="სახელი" class="form-control col-span-1"/>
                 <x-splade-input name="last_name" placeholder="გვარი" class="form-control col-span-1"/>
@@ -34,11 +35,13 @@
                 <div class="radio-input-cointainer">
                     <div class="radio-input-item first">
                         <label class="mr-2 radio-label">კი</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections" value="1">
+                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                               value="1">
                     </div>
                     <div class="radio-input-item">
                         <label class="mr-2 radio-label">არა</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections" value="0">
+                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                               value="0">
                     </div>
                 </div>
             </div>
@@ -89,7 +92,8 @@
             </div>
             <div class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
                 <div class="file-upload-desktop">
-                    <x-splade-file name="avatar[]" multiple placeholder="ატვირთვა" :show-filename="true"/>
+                    <x-splade-file name="images[]" :show-errors="false" multiple placeholder="ატვირთვა"
+                                   :show-filename="true"/>
                 </div>
                 <div>
                     <div class="fileupload-title">
@@ -107,9 +111,17 @@
                     </x-splade-errors>
                 </div>
                 <div class="file-upload-mobile">
-                    <x-splade-file name="avatar[]" multiple placeholder="ატვირთვა" :show-filename="true"/>
+                    <x-splade-file name="images[]" multiple placeholder="ატვირთვა" :show-filename="true"/>
                 </div>
             </div>
+
+            <x-splade-errors>
+                <div v-for="(error, key) in errors" :key="key">
+                    <span v-if="key.includes('images')" v-for="(errorItem, innerKey) in error" :key="innerKey">
+                      <p class="text-red-600 text-sm mt-2 font-sans" v-text="errorItem"></p>
+                    </span>
+                </div>
+            </x-splade-errors>
             <div class="submit-container">
                 <x-splade-submit class="submit-button mt-4" label="გაგზავნა" :spinner="true"/>
             </div>

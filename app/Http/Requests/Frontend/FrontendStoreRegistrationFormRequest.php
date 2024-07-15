@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
+use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
 
-class FrontendStoreRegistrationFormRequest extends FormRequest
+class FrontendStoreRegistrationFormRequest extends FormRequest implements HasSpladeFileUploads
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,6 +38,9 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'later_registration' => 'nullable|boolean',
             'transportation_help' => 'required|boolean',
             'agreement' => 'accepted',
+            'images' => 'required|array',
+            'images.*' => 'image',
+            'images_order' => 'nullable|boolean'
         ];
     }
 
@@ -68,6 +72,8 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'transportation_help.required' => 'გთხოვთ, მიუთითეთ თუ გესაჭიროებათ საარჩევნო უბნამდე ტრანსპორტირებაში დახმარება',
             'transportation_help.boolean' => 'არასწორი მნიშვნელობა ტრანსპორტირების ველში',
             'agreement.accepted' => 'გთხოვთ, დაადასტურეთ რომ თანახმა ხართ პირადი მონაცემების გამოყენებაზე',
+            'images.required' => 'სურათის ატვირთვა აუცილებელია',
+            'images.*.image' => 'დასაშვებია მხოლოდ სურათის ატვირთვა'
         ];
     }
 }

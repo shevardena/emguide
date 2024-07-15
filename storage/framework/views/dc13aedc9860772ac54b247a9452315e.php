@@ -151,11 +151,13 @@
                 <div class="radio-input-cointainer">
                     <div class="radio-input-item first">
                         <label class="mr-2 radio-label">კი</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections" value="1">
+                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                               value="1">
                     </div>
                     <div class="radio-input-item">
                         <label class="mr-2 radio-label">არა</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections" value="0">
+                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                               value="0">
                     </div>
                 </div>
             </div>
@@ -226,7 +228,7 @@
                 <div class="file-upload-desktop">
                     <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'avatar[]','multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','showErrors' => false,'multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -281,7 +283,7 @@
                 <div class="file-upload-mobile">
                     <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'avatar[]','multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -301,6 +303,32 @@
 <?php endif; ?>
                 </div>
             </div>
+
+            <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalfe8226cb659a7e2982b96ab926f35445 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Errors::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-errors'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Errors::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+                <div v-for="(error, key) in errors" :key="key">
+                    <span v-if="key.includes('images')" v-for="(errorItem, innerKey) in error" :key="innerKey">
+                      <p class="text-red-600 text-sm mt-2 font-sans" v-text="errorItem"></p>
+                    </span>
+                </div>
+             <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalfe8226cb659a7e2982b96ab926f35445)): ?>
+<?php $attributes = $__attributesOriginalfe8226cb659a7e2982b96ab926f35445; ?>
+<?php unset($__attributesOriginalfe8226cb659a7e2982b96ab926f35445); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalfe8226cb659a7e2982b96ab926f35445)): ?>
+<?php $component = $__componentOriginalfe8226cb659a7e2982b96ab926f35445; ?>
+<?php unset($__componentOriginalfe8226cb659a7e2982b96ab926f35445); ?>
+<?php endif; ?>
             <div class="submit-container">
                 <?php if (isset($component)) { $__componentOriginal2d975ce603f483bebe2dbee59a477e99 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal2d975ce603f483bebe2dbee59a477e99 = $attributes; } ?>

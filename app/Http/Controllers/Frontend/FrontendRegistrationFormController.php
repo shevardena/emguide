@@ -17,15 +17,15 @@ class FrontendRegistrationFormController
     public function store(FrontendStoreRegistrationFormRequest $request)
     {
         try {
-            $this->registrationFormService->store($request->validated());
+            $this->registrationFormService->store($request);
             Toast::title('„მადლობა!“')
                 ->autoDismiss(5);
             return redirect()->route('home.index');
         }catch (\Exception $e){
-            dd($e);
             Toast::warning()
                 ->title('Error creating backend user parameter: ' . $e->getMessage())
                 ->autoDismiss(5);
+            return redirect()->route('home.index');
         }
     }
 }

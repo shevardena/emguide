@@ -152,16 +152,19 @@
     }
     });
     });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
     const personalIdInput = document.querySelector('input[name="personal_id"]');
 
     personalIdInput.addEventListener('input', function() {
-    this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    // Remove non-numeric characters
+    let value = this.value.replace(/[^0-9]/g, '');
 
-    if (this.value.length > 11) {
-    this.value = this.value.slice(0, 11); // Restrict length to 11 digits
+    // Restrict length to 11 digits
+    if (value.length > 11) {
+    value = value.slice(0, 11);
     }
+
+    // Set the cleaned and limited value back to the input
+    this.value = value;
     });
     });
 </x-splade-script>

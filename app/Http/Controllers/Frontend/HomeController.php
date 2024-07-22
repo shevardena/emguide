@@ -17,12 +17,22 @@ class HomeController
 
     public function index(){
         return view('frontend.pages.home',[
-            'countries' => Country::all()
+            'countries' => Country::all(),
+            'genders' => $this->homeService->getGenders(),
+            'citizenships' => $this->homeService->getCitizenShips()
         ]);
     }
 
     public function about(){
         return view('frontend.pages.about');
+    }
+
+    public function contact(){
+        return view('frontend.pages.contact');
+    }
+
+    public function agreement(){
+        return view('frontend.pages.agreement');
     }
 
     public function saveForm(FrontendStoreRegistrationFormRequest $request){

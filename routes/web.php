@@ -77,6 +77,8 @@ Route::middleware(['splade'])->group(function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
+    Route::get('/contact-us', [HomeController::class, 'contact'])->name('home.contact');
+    Route::get('/agreement', [HomeController::class, 'agreement'])->name('home.agreement');
     Route::post('/store', [FrontendRegistrationFormController::class, 'store'])->name('registrationForm.store');
     Route::get('/cities/{country_id}', [HomeController::class, 'getCities'])->name('home.cities');
 

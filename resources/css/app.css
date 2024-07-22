@@ -108,6 +108,15 @@ body{
     color: #070A14;
     padding: 16px 24px;
 }
+.form-control.date input:after {
+    color: #CCC;
+    content: attr(placeholder) !important;
+    font-size: 14px
+}
+.form-control.date input:focus:after {
+    content: '' !important;
+}
+
 .form-control.date input{
     min-height: auto;
 }
@@ -609,12 +618,4 @@ html, body {
 .about-container h2{
     font-size: 18px;
     margin-bottom: 12px;
-}
-input.date-field:after {
-    color: #CCC;
-    content: attr(placeholder) !important;
-    font-size: 14px
-}
-input.date-field:focus:after {
-    content: '' !important;
 }

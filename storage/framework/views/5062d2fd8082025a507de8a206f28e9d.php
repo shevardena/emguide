@@ -32,6 +32,174 @@
 <?php endif; ?>
 <?php $component->withAttributes(['action' => ''.e(route('registration_forms.update', $registration_form->id)).'']); ?>
             <div class="flex flex-col sm:flex-row mt-4">
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'last_name','label' => 'Last name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'first_name','label' => 'First name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'personal_id','label' => 'Personal ID'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => true,'name' => 'date_of_birth','label' => 'Date Of Birth'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'gender','label' => 'Gender'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'citizenship','label' => 'Citizenship'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'date_of_entry','label' => 'Date of entry'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'purpose_of_visit','label' => 'Pirpose of visit'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mt-4 sm:mt-0']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
+<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
+<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php endif; ?>
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
                 <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['choices' => true,'options' => $countries,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'ქვეყანა','name' => 'country_id','label' => 'Country'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -76,7 +244,7 @@
             <div class="flex flex-col sm:flex-row mt-4">
                 <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'first_name','label' => 'First name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'text','name' => 'address','label' => 'Address'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -96,7 +264,7 @@
 <?php endif; ?>
                 <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'last_name','label' => 'Last name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'text','name' => 'postal_code','label' => 'Postal Code'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -118,7 +286,7 @@
             <div class="flex flex-col sm:flex-row mt-4">
                 <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'email','name' => 'email','label' => 'Email'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'text','name' => 'phone','label' => 'Phone'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -138,7 +306,7 @@
 <?php endif; ?>
                 <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'text','name' => 'phone','label' => 'Phone'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'email','name' => 'email','label' => 'Email'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>

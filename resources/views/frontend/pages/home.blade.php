@@ -2,24 +2,28 @@
 @seoTitle('მთავარი გვერდი')
 @section('content')
     <div
-        class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
+            class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
         <x-splade-form method="POST" action="{{ route('registrationForm.store') }}"
                        default="{citizenship: 'საქართველო', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}">
             <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
                 <x-splade-input name="last_name" placeholder="გვარი ქართულად" class="form-control col-span-1"/>
                 <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control col-span-1"/>
-                <x-splade-input  type="number" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)"
+                <x-splade-input pattern="\d{11}" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)"
                                 class="form-control col-span-1"/>
-                <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი" class="form-control date col-span-1"/>
+                <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი"
+                                class="form-control date col-span-1"/>
                 <x-splade-select name="gender" choices :choices="['searchEnabled' => true ]" :options="$genders"
                                  option-label="name" option-value="id" placeholder="სქესი"
                                  class="form-control col-span-1"/>
-                <x-splade-select name="citizenship" choices :choices="['searchEnabled' => true ]" :options="$citizenships"
+                <x-splade-select name="citizenship" choices :choices="['searchEnabled' => true ]"
+                                 :options="$citizenships"
                                  option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                  class="form-control col-span-1"/>
-                <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი" class="form-control date col-span-1"/>
-                <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]" :options="$purpose_of_visits"
+                <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
+                                class="form-control date col-span-1"/>
+                <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]"
+                                 :options="$purpose_of_visits"
                                  option-label="name" option-value="id" placeholder="ვიზიტის მიზანი"
                                  class="form-control col-span-1"/>
             </div>
@@ -42,7 +46,7 @@
             <div class="questionnaire first">
                 <div class="flex items-center mb-4 md:mb-0">
                     <div
-                        class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
+                            class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
                         01
                     </div>
                     <label class="block form-label">
@@ -85,7 +89,7 @@
             <div class="questionnaire second">
                 <div class="flex items-center mb-4 md:mb-0 sm:block xs:block">
                     <div
-                        class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
+                            class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
                         02
                     </div>
                     <label class="block form-label">
@@ -114,8 +118,8 @@
                     </div>
                     <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
                         <input type="checkbox" class="checkbox-input" v-model="form.agreement">
-                        <Link modal class="agreement" href="{{ route('home.agreement') }}">
-                            თანახმა ვარ, საკუთარი პირადი  მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
+                        <Link modal href="{{ route('home.agreement') }}">
+                        თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
                         </Link>
                     </div>
                     <x-splade-errors>
@@ -167,28 +171,5 @@
     this.value = value;
     });
 
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-    // Get the agree button
-    const agreeButton = document.getElementById('agree');
-
-    // Add click event listener to the agree button
-    agreeButton.addEventListener('click', function() {
-    // Find the button with the dusk attribute
-    const closeModalButton = document.querySelector('[dusk="close-modal-button"]');
-
-    // Trigger click event on the close modal button
-    if (closeModalButton) {
-    closeModalButton.click();
-    }
-
-    // Check the checkbox with the class .checkbox-input
-    const checkboxInput = document.querySelector('.checkbox-input');
-
-    if (checkboxInput) {
-    checkboxInput.checked = true;
-    checkboxInput.disabled = false;  // Enable the checkbox after clicking the agree button
-    }
-    });
     });
 </x-splade-script>

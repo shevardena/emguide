@@ -50,6 +50,14 @@ class RegistrationForms extends AbstractTable
         $table
             ->withGlobalSearch(columns: ['id', 'first_name', 'last_name',])
             ->column('id', sortable: true)
+            ->column('last_name', sortable: true)
+            ->column('first_name', sortable: true)
+            ->column('personal_id', sortable: true)
+            ->column('date_of_birth', sortable: true)
+            ->column('gender', sortable: true)
+            ->column('citizenship', sortable: true)
+            ->column('date_of_entry', sortable: true)
+            ->column('purpose_of_visit', sortable: true)
             ->column(
                 key: 'country.name',
                 label: 'Country',
@@ -60,12 +68,11 @@ class RegistrationForms extends AbstractTable
                 label: 'City',
                 sortable: true,
             )
-            ->column('first_name', sortable: true)
-            ->column('last_name', sortable: true)
+            ->column('address', sortable: true)
+            ->column('postal_code', sortable: true)
             ->column('email', sortable: true)
             ->column('phone', sortable: true)
             ->column('registered_to_participate_in_elections', sortable: true)
-            ->column('id_code', sortable: true)
             ->column('registration_help', sortable: true)
             ->column('want_consultation', sortable: true)
             ->column('later_registration', sortable: true)

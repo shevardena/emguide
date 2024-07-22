@@ -5,16 +5,32 @@
     <div class="mx-4 mt-5 h-full">
         <x-splade-form :default="$registration_form" action="{{ route('registration_forms.update', $registration_form->id) }}">
             <div class="flex flex-col sm:flex-row mt-4">
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" name="last_name" label="Last name" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" name="first_name" label="First name" />
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" name="personal_id" label="Personal ID" />
+                <x-splade-input disabled date class="w-full sm:w-1/2 mt-4 sm:mt-0" name="date_of_birth" label="Date Of Birth" />
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" name="gender" label="Gender" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" name="citizenship" label="Citizenship" />
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" name="date_of_entry" label="Date of entry" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" name="purpose_of_visit" label="Pirpose of visit" />
+            </div>
+            <div class="flex flex-col sm:flex-row mt-4">
                 <x-splade-select disabled choices :options="$countries" option-label="name" option-value="id"  class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" placeholder="ქვეყანა" name="country_id" label="Country" />
                 <x-splade-select disabled choices option-label="name" option-value="id" choices remote-url="`/cities/${form.country}`" class="w-full sm:w-1/2 mt-4 sm:mt-0" placeholder="ქალაქი" name="city_id" label="City" />
             </div>
             <div class="flex flex-col sm:flex-row mt-4">
-                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" name="first_name" label="First name" />
-                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" name="last_name" label="Last name" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" type="text" name="address" label="Address" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" type="text" name="postal_code" label="Postal Code" />
             </div>
             <div class="flex flex-col sm:flex-row mt-4">
-                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" type="email" name="email" label="Email" />
-                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" type="text" name="phone" label="Phone" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0 sm:mr-4" type="text" name="phone" label="Phone" />
+                <x-splade-input disabled class="w-full sm:w-1/2 mt-4 sm:mt-0" type="email" name="email" label="Email" />
             </div>
             <div class="mt-4">
                 <label>Have you registered to participate in the October 26th elections?</label>

@@ -1,7 +1,7 @@
 <?php \ProtoneMedia\Splade\Facades\SEO::title('მთავარი გვერდი'); ?>
 <?php $__env->startSection('content'); ?>
     <div
-        class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
+            class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
         <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -56,14 +56,14 @@
 <?php endif; ?>
                 <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'number','name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['pattern' => '\d{11}','placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -303,7 +303,7 @@
             <div class="questionnaire first">
                 <div class="flex items-center mb-4 md:mb-0">
                     <div
-                        class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
+                            class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
                         01
                     </div>
                     <label class="block form-label">
@@ -346,7 +346,7 @@
             <div class="questionnaire second">
                 <div class="flex items-center mb-4 md:mb-0 sm:block xs:block">
                     <div
-                        class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
+                            class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
                         02
                     </div>
                     <label class="block form-label">
@@ -393,8 +393,8 @@
                     </div>
                     <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
                         <input type="checkbox" class="checkbox-input" v-model="form.agreement">
-                        <Link modal class="agreement" href="<?php echo e(route('home.agreement')); ?>">
-                            თანახმა ვარ, საკუთარი პირადი  მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
+                        <Link modal href="<?php echo e(route('home.agreement')); ?>">
+                        თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
                         </Link>
                     </div>
                     <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
@@ -538,29 +538,6 @@
     this.value = value;
     });
 
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-    // Get the agree button
-    const agreeButton = document.getElementById('agree');
-
-    // Add click event listener to the agree button
-    agreeButton.addEventListener('click', function() {
-    // Find the button with the dusk attribute
-    const closeModalButton = document.querySelector('[dusk="close-modal-button"]');
-
-    // Trigger click event on the close modal button
-    if (closeModalButton) {
-    closeModalButton.click();
-    }
-
-    // Check the checkbox with the class .checkbox-input
-    const checkboxInput = document.querySelector('.checkbox-input');
-
-    if (checkboxInput) {
-    checkboxInput.checked = true;
-    checkboxInput.disabled = false;  // Enable the checkbox after clicking the agree button
-    }
-    });
     });
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

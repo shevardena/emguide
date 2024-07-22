@@ -1,0 +1,1 @@
+<?php /**PATH /home/yoshito/Projects/vote/storage/framework/views/99aa06d3014798d86001c324468d497f.blade.php ENDPATH**/ ?>

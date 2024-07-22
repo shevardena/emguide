@@ -1,3 +1,4 @@
+<?php \ProtoneMedia\Splade\Facades\SEO::title('მთავარი გვერდი'); ?>
 <?php if (isset($component)) { $__componentOriginal3ace2ce9b7b6a89aff3b69f8f4ac5721 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal3ace2ce9b7b6a89aff3b69f8f4ac5721 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Modal::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>

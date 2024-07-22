@@ -11,14 +11,14 @@
                 <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control col-span-1"/>
                 <x-splade-input  type="number" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)"
                                 class="form-control col-span-1"/>
-                <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი" class="form-control col-span-1"/>
+                <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი" class="form-control date col-span-1"/>
                 <x-splade-select name="gender" choices :choices="['searchEnabled' => true ]" :options="$genders"
                                  option-label="name" option-value="id" placeholder="სქესი"
                                  class="form-control col-span-1"/>
                 <x-splade-select name="citizenship" choices :choices="['searchEnabled' => true ]" :options="$citizenships"
                                  option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                  class="form-control col-span-1"/>
-                <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი" class="form-control col-span-1"/>
+                <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი" class="form-control date col-span-1"/>
                 <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]" :options="$purpose_of_visits"
                                  option-label="name" option-value="id" placeholder="ვიზიტის მიზანი"
                                  class="form-control col-span-1"/>
@@ -165,6 +165,30 @@
 
     // Set the cleaned and limited value back to the input
     this.value = value;
+    });
+
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the agree button
+    const agreeButton = document.getElementById('agree');
+
+    // Add click event listener to the agree button
+    agreeButton.addEventListener('click', function() {
+    // Find the button with the dusk attribute
+    const closeModalButton = document.querySelector('[dusk="close-modal-button"]');
+
+    // Trigger click event on the close modal button
+    if (closeModalButton) {
+    closeModalButton.click();
+    }
+
+    // Check the checkbox with the class .checkbox-input
+    const checkboxInput = document.querySelector('.checkbox-input');
+
+    if (checkboxInput) {
+    checkboxInput.checked = true;
+    checkboxInput.disabled = false;  // Enable the checkbox after clicking the agree button
+    }
     });
     });
 </x-splade-script>

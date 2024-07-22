@@ -1,4 +1,3 @@
-@seoTitle('მთავარი გვერდი')
 <x-splade-modal>
     <p style="text-align: left;color: rgb(0, 0, 0);font-size: 11pt;"><span style="color: rgb(0, 0, 0);font-size: 10pt;">&bdquo;ვეთანხმები წესებსა და პირობებს&ldquo;</span></p>
     <p style="text-align: left;color: rgb(0, 0, 0);font-size: 11pt;"><br></p>
@@ -346,4 +345,9 @@
     <p style="text-align: left;color: rgb(0, 0, 0);background-color: rgb(248, 249, 250);font-size: 11pt;"><br></p>
     <p style="text-align: left;color: rgb(0, 0, 0);background-color: rgb(248, 249, 250);font-size: 11pt;"><span style="color: rgb(32, 33, 36);font-size: 10pt;">ჩვენ ვინარჩუნებთ მიმდინარე ტექნიკურ ზომებს მონაცემთა უსაფრთხოების უზრუნველსაყოფად, კერძოდ, რომ დავიცვათ თქვენი პერსონალური მონაცემები საფრთხისგან მონაცემთა გადაცემის დროს და მესამე მხარის მიერ ამის შესახებ ცოდნის მიღებისგან. ისინი ადაპტირებულია ხელოვნების ამჟამინდელ მდგომარეობასთან. ჩვენს ვებსაიტზე მოწოდებული მონაცემების კონფიდენციალურობისა და მთლიანობის შესანარჩუნებლად, ეს მონაცემები გადაიცემა https და სატრანსპორტო ფენის უსაფრთხოების (TLS) მეშვეობით.</span></p>
     <p style="text-align: left;color: rgb(0, 0, 0);font-size: 11pt;"><span style="color: rgb(32, 33, 36);font-size: 10pt;">თქვენი პერსონალური მონაცემები ინახება ამერიკის შეერთებულ შტატებში&nbsp;</span><span style="font-size: 10pt;">Godaddy</span><span style="font-size: 10pt;">&nbsp;</span><span style="font-size: 10pt;">ს&nbsp;</span><span style="color: rgb(32, 33, 36);font-size: 10pt;">დაცულ სერვერზე&nbsp;</span><u><span style="color: rgb(5, 99, 193);font-size: 10pt;"><a href="https://www.google.com/url?q=https://host.godaddy.com/webhosting/&sa=D&source=editors&ust=1721645269050594&usg=AOvVaw2gLn3h7xianTzp9vDOxQNj" style="color: inherit;">https://host.godaddy.com/webhosting/</a></span></u><strong><span style="color: rgb(0, 176, 240);font-size: 10pt;"><br><br></span></strong><span style="color: rgb(0, 0, 0);font-size: 10pt;">მხოლოდ ამის შემდეგ გაიარეთ რეგისტრაცია, თუ ეთანხმებით თქვენი პირადი მონაცემების გადამუშავების და გამოყენების წესებს.</span></p>
+    <p class="mt-[12px]">
+        <button id="agree" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            ვეთანხმები
+        </button>
+    </p>
 </x-splade-modal>

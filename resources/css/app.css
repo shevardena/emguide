@@ -88,7 +88,7 @@ body{
 .form-control{
     margin-bottom: 12px;
 }
-.form-control label div{
+.form-control div{
     border: 0;
     outline: 0;
     box-shadow: none;
@@ -107,6 +107,9 @@ body{
     min-height: 52px;
     color: #070A14;
     padding: 16px 24px;
+}
+.form-control.date input{
+    min-height: auto;
 }
 .choices__inner{
     height: 52px;
@@ -406,6 +409,10 @@ p.text-red-600:before {
 .file-upload-mobile{
     display: none;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 @media (max-width: 768px) {
 
     html, body {
@@ -435,10 +442,14 @@ p.text-red-600:before {
         position: relative; /* Ensure content is above the pseudo-element */
         z-index: 1;
     }
+    .logo{
+        width: 80px;
+        margin: 10px 0 10px 10px;
+    }
     .form-title{
         color: #070A14;
         font-family: "Avenir Next Georgian";
-        font-size: 20px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -452,6 +463,8 @@ p.text-red-600:before {
     }
     .page-title{
         padding-bottom: 20px;
+        font-size: 16px;
+        color: #fff;
     }
     .label-count{
         display: none;
@@ -531,7 +544,7 @@ p.text-red-600:before {
     .file-upload-container{
         padding: 20px 16px;
     }
-    .file-upload-container a{
+    .file-upload-container .file-upload a{
         width: 100%;
         margin-top: 20px;
         min-height: 210px;
@@ -557,6 +570,8 @@ p.text-red-600:before {
     }
     .links a{
         width: 100%;
+        margin-bottom: 10px;
+        font-size: 14px;
     }
     .links span{
         display: none;

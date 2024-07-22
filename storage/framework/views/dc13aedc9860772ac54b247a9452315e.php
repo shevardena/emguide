@@ -154,25 +154,25 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'purpose_of_visit'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('splade-input'); ?>
+                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'purpose_of_visit','choices' => ['searchEnabled' => true ],'options' => $purpose_of_visits,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'ვიზიტის მიზანი'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'ვიზიტის მიზანი','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
-<?php $attributes = $__attributesOriginal690b64017277cbdd89bc2d788db21f28; ?>
-<?php unset($__attributesOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
+<?php $attributes = $__attributesOriginal10476663a3271f48a2be05c903a73050; ?>
+<?php unset($__attributesOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginal690b64017277cbdd89bc2d788db21f28)): ?>
-<?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
-<?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
+<?php if (isset($__componentOriginal10476663a3271f48a2be05c903a73050)): ?>
+<?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
+<?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
             </div>
             <h1 class="form-title mt-[12px]">განმცხადებლის საცხოვრებელი მისამართი.</h1>
@@ -522,6 +522,17 @@
     radioInput.dispatchEvent(new Event('change')); // To trigger any change event listeners
     }
     });
+    });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const personalIdInput = document.querySelector('input[name="personal_id"]');
+
+    personalIdInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+    if (this.value.length > 11) {
+    this.value = this.value.slice(0, 11); // Restrict length to 11 digits
+    }
     });
     });
  <?php echo $__env->renderComponent(); ?>

@@ -19,7 +19,8 @@ class HomeController
         return view('frontend.pages.home',[
             'countries' => Country::all(),
             'genders' => $this->homeService->getGenders(),
-            'citizenships' => $this->homeService->getCitizenShips()
+            'citizenships' => $this->homeService->getCitizenShips(),
+            'purpose_of_visits' => $this->homeService->getPurposeOfVisits(),
         ]);
     }
 

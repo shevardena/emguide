@@ -19,7 +19,9 @@
                                  option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                  class="form-control col-span-1"/>
                 <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი" class="form-control col-span-1"/>
-                <x-splade-input  name="purpose_of_visit" placeholder="ვიზიტის მიზანი" class="form-control col-span-1"/>
+                <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]" :options="$purpose_of_visits"
+                                 option-label="name" option-value="id" placeholder="ვიზიტის მიზანი"
+                                 class="form-control col-span-1"/>
             </div>
             <h1 class="form-title mt-[12px]">განმცხადებლის საცხოვრებელი მისამართი.</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
@@ -149,6 +151,17 @@
     radioInput.dispatchEvent(new Event('change')); // To trigger any change event listeners
     }
     });
+    });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const personalIdInput = document.querySelector('input[name="personal_id"]');
+
+    personalIdInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+    if (this.value.length > 11) {
+    this.value = this.value.slice(0, 11); // Restrict length to 11 digits
+    }
     });
     });
 </x-splade-script>

@@ -109,11 +109,11 @@ body{
     padding: 16px 24px;
 }
 .form-control.date input:after {
-    color: #CCC;
+    color: #070A14;
     content: attr(placeholder) !important;
     font-size: 14px
 }
-.form-control.date input:focus:after {
+.form-control.date input[value]:not([value=""]) + input:after {
     content: '' !important;
 }
 

@@ -1,16 +1,6 @@
 <?php \ProtoneMedia\Splade\Facades\SEO::title('მთავარი გვერდი'); ?>
 <?php $__env->startSection('content'); ?>
-    <?php if (isset($component)) { $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{ success: true, terms_agreed: false, show_terms: false}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('splade-data'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Data::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-        <?php if (isset($component)) { $__componentOriginalce9c349ddaa9b55b02cbb8189788e282 = $component; } ?>
+    <?php if (isset($component)) { $__componentOriginalce9c349ddaa9b55b02cbb8189788e282 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalce9c349ddaa9b55b02cbb8189788e282 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Flash::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-flash'); ?>
@@ -20,15 +10,35 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Flash::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-            <div v-show="data.success && flash.has('message')" id="custom-modal" class="success fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50">
+        <?php if (isset($component)) { $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{show_success_message: true}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-data'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Data::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+            <div v-show="flash.has('message') && data.show_success_message" id="custom-modal" class="success fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50">
                 <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm w-full relative">
-                    <button @click.prevent="data.success = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
+                    <button @click.prevent="data.show_success_message = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
                         <i class="fa fa-times text-2xl"></i>
                     </button>
                     <p v-if="flash.has('message')" v-text="flash.message" />
                 </div>
             </div>
          <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c)): ?>
+<?php $attributes = $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
+<?php unset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginale6278a0588d6b97345ecb6e9bf149e6c)): ?>
+<?php $component = $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
+<?php unset($__componentOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
+<?php endif; ?>
+     <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalce9c349ddaa9b55b02cbb8189788e282)): ?>
 <?php $attributes = $__attributesOriginalce9c349ddaa9b55b02cbb8189788e282; ?>
@@ -38,17 +48,9 @@
 <?php $component = $__componentOriginalce9c349ddaa9b55b02cbb8189788e282; ?>
 <?php unset($__componentOriginalce9c349ddaa9b55b02cbb8189788e282); ?>
 <?php endif; ?>
-        <div v-show="!data.show_terms" id="custom-modal" class="pt-24 pb-124 fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-auto">
-            <div class="bg-white terms-modal shadow-lg rounded-lg p-6 max-w-3xl w-full relative overflow-auto max-h-screen">
-                <button @click.prevent="data.success = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
-                    <i class="fa fa-times text-2xl"></i>
-                </button>
-                <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            </div>
-        </div>
-        <div
-            class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
-            <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
+    <div
+        class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
+        <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-form'); ?>
@@ -58,6 +60,31 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['method' => 'POST','action' => ''.e(route('registrationForm.store')).'']); ?>
+            <?php if (isset($component)) { $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{show_terms: false}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-data'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Data::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+                <div v-show="data.show_terms" id="custom-modal"
+                     class="fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-[90%] relative overflow-auto max-h-full">
+                        <button @click.prevent="data.show_terms = false"
+                                class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
+                            <i class="fa fa-times text-2xl"></i>
+                        </button>
+                        <div class="max-h-[80vh] overflow-y-auto">
+                            <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        </div>
+                        <button @click.prevent="form.$put('agreement', true), data.show_terms = false" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            ვეთანხმები
+                        </button>
+                    </div>
+                </div>
                 <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
@@ -102,7 +129,7 @@
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'number','name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -359,12 +386,14 @@
                     <div class="radio-input-cointainer">
                         <div class="radio-input-item first">
                             <label class="mr-2 radio-label">კი</label>
-                            <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                            <input type="radio" class="radio-input"
+                                   v-model="form.registered_to_participate_in_elections"
                                    value="1">
                         </div>
                         <div class="radio-input-item">
                             <label class="mr-2 radio-label">არა</label>
-                            <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                            <input type="radio" class="radio-input"
+                                   v-model="form.registered_to_participate_in_elections"
                                    value="0">
                         </div>
                     </div>
@@ -410,7 +439,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
+                <div
+                    class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
                     <div class="file-upload-desktop file-upload">
                         <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
@@ -438,11 +468,11 @@
                             ატვირთე ფოტო
                         </div>
                         <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                            <input v-if="!data.terms_agreed" type="checkbox" class="checkbox-input" v-model="form.agreement">
-                            <input v-if="data.terms_agreed" disabled type="checkbox" class="checkbox-input" v-model="form.agreement">
+                            <input type="checkbox" disabled class="checkbox-input" v-model="form.agreement">
                             <a @click.prevent="data.show_terms = true" href="#">
-                            თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
-                            </Link>
+                                თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის
+                                მიზნით
+                            </a>
                         </div>
                         <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalfe8226cb659a7e2982b96ab926f35445 = $attributes; } ?>
@@ -540,17 +570,6 @@
                 </div>
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a)): ?>
-<?php $attributes = $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
-<?php unset($__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a)): ?>
-<?php $component = $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
-<?php unset($__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a); ?>
-<?php endif; ?>
-        </div>
-     <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
 <?php if (isset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c)): ?>
 <?php $attributes = $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
 <?php unset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
@@ -559,6 +578,17 @@
 <?php $component = $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
 <?php unset($__componentOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
 <?php endif; ?>
+         <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a)): ?>
+<?php $attributes = $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
+<?php unset($__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a)): ?>
+<?php $component = $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
+<?php unset($__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a); ?>
+<?php endif; ?>
+    </div>
 <?php $__env->stopSection(); ?>
 <?php if (isset($component)) { $__componentOriginal85e14d8f2eb9be41c54f3ef4caf4b63b = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal85e14d8f2eb9be41c54f3ef4caf4b63b = $attributes; } ?>

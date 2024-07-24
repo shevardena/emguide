@@ -72,17 +72,17 @@
 <?php $component->withAttributes([]); ?>
                 <div v-show="data.show_terms" id="custom-modal"
                      class="fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50">
-                    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-[90%] relative overflow-auto max-h-full">
+                    <div class="bg-white shadow-lg rounded-lg p-12 w-full max-w-[90%] relative overflow-auto max-h-full">
                         <button @click.prevent="data.show_terms = false"
                                 class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
                             <i class="fa fa-times text-2xl"></i>
                         </button>
                         <div class="max-h-[80vh] overflow-y-auto">
                             <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            <button @click.prevent="form.$put('agreement', true), data.show_terms = false" class="mt-4 mb-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                ვეთანხმები
+                            </button>
                         </div>
-                        <button @click.prevent="form.$put('agreement', true), data.show_terms = false" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            ვეთანხმები
-                        </button>
                     </div>
                 </div>
                 <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>

@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
     <?php if (isset($component)) { $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{ success: true, show_terms: false}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{ success: true, terms_agreed: false, show_terms: false}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-data'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -38,11 +38,19 @@
 <?php $component = $__componentOriginalce9c349ddaa9b55b02cbb8189788e282; ?>
 <?php unset($__componentOriginalce9c349ddaa9b55b02cbb8189788e282); ?>
 <?php endif; ?>
+        <div v-show="!data.show_terms" id="custom-modal" class="pt-24 pb-124 fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-auto">
+            <div class="bg-white terms-modal shadow-lg rounded-lg p-6 max-w-3xl w-full relative overflow-auto max-h-screen">
+                <button @click.prevent="data.success = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
+                    <i class="fa fa-times text-2xl"></i>
+                </button>
+                <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </div>
+        </div>
         <div
             class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
             <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{agreement: false, citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-form'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -50,17 +58,6 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['method' => 'POST','action' => ''.e(route('registrationForm.store')).'']); ?>
-                <div v-show="data.show_terms" id="terms-modal" class="overflow-hidden fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-auto">
-                    <div class="bg-white shadow-lg rounded-lg p-6 max-w-[90%] overflow-auto max-h-[90vh] relative">
-                        <button @click.prevent="data.show_terms = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
-                            <i class="fa fa-times text-2xl"></i>
-                        </button>
-                        <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                        <button @click.prevent="form.$put('agreement', true), data.show_terms = false, data.terms_agreed = true" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
-                            ვეთანხმები
-                        </button>
-                    </div>
-                </div>
                 <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
@@ -441,7 +438,8 @@
                             ატვირთე ფოტო
                         </div>
                         <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                            <input disabled type="checkbox" class="checkbox-input" v-model="form.agreement">
+                            <input v-if="!data.terms_agreed" type="checkbox" class="checkbox-input" v-model="form.agreement">
+                            <input v-if="data.terms_agreed" disabled type="checkbox" class="checkbox-input" v-model="form.agreement">
                             <a @click.prevent="data.show_terms = true" href="#">
                             თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
                             </Link>

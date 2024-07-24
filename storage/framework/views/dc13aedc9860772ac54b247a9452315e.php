@@ -1,10 +1,48 @@
 <?php \ProtoneMedia\Splade\Facades\SEO::title('მთავარი გვერდი'); ?>
 <?php $__env->startSection('content'); ?>
-    <div
+    <?php if (isset($component)) { $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Data::resolve(['default' => '{ success: true, show_terms: false}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-data'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Data::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+        <?php if (isset($component)) { $__componentOriginalce9c349ddaa9b55b02cbb8189788e282 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalce9c349ddaa9b55b02cbb8189788e282 = $attributes; } ?>
+<?php $component = ProtoneMedia\Splade\Components\Flash::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('splade-flash'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Flash::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+            <div v-show="data.success && flash.has('message')" id="custom-modal" class="success fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm w-full relative">
+                    <button @click.prevent="data.success = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                    <p v-if="flash.has('message')" v-text="flash.message" />
+                </div>
+            </div>
+         <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalce9c349ddaa9b55b02cbb8189788e282)): ?>
+<?php $attributes = $__attributesOriginalce9c349ddaa9b55b02cbb8189788e282; ?>
+<?php unset($__attributesOriginalce9c349ddaa9b55b02cbb8189788e282); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalce9c349ddaa9b55b02cbb8189788e282)): ?>
+<?php $component = $__componentOriginalce9c349ddaa9b55b02cbb8189788e282; ?>
+<?php unset($__componentOriginalce9c349ddaa9b55b02cbb8189788e282); ?>
+<?php endif; ?>
+        <div
             class="bg-[#FAFBFD] p-[80px] form-container ml-auto mr-auto mt-[100px] mb-[100px] rounded-2xl shadow-lg w-full max-w-lg">
-        <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
+            <?php if (isset($component)) { $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form::resolve(['default' => '{agreement: false, citizenship: \'საქართველო\', registered_to_participate_in_elections: 1, registration_help: 0, want_consultation: 0, later_registration: 0, transportation_help: 1}'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-form'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -12,9 +50,20 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['method' => 'POST','action' => ''.e(route('registrationForm.store')).'']); ?>
-            <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                <div v-show="data.show_terms" id="terms-modal" class="overflow-hidden fixed inset-0 z-10 flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-auto">
+                    <div class="bg-white shadow-lg rounded-lg p-6 max-w-[90%] overflow-auto max-h-[90vh] relative">
+                        <button @click.prevent="data.show_terms = false" class="absolute rounded-full top-4 right-4 text-gray-500 hover:text-gray-800">
+                            <i class="fa fa-times text-2xl"></i>
+                        </button>
+                        <?php echo $__env->make('frontend.pages.agreement', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <button @click.prevent="form.$put('agreement', true), data.show_terms = false, data.terms_agreed = true" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+                            ვეთანხმები
+                        </button>
+                    </div>
+                </div>
+                <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'last_name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -34,7 +83,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'first_name'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -54,7 +103,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -74,7 +123,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => true,'name' => 'date_of_birth'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -94,7 +143,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'gender','choices' => ['searchEnabled' => true ],'options' => $genders,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'სქესი'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-select'); ?>
@@ -114,7 +163,7 @@
 <?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
 <?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'citizenship','choices' => ['searchEnabled' => true ],'options' => $citizenships,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'მოქალაქეობა'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-select'); ?>
@@ -134,7 +183,7 @@
 <?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
 <?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => true,'name' => 'date_of_entry'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -154,7 +203,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'purpose_of_visit','choices' => ['searchEnabled' => true ],'options' => $purpose_of_visits,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'ვიზიტის მიზანი'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-select'); ?>
@@ -174,10 +223,10 @@
 <?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
 <?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-            </div>
-            <h1 class="form-title mt-[12px]">განმცხადებლის საცხოვრებელი მისამართი.</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
-                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+                </div>
+                <h1 class="form-title mt-[12px]">განმცხადებლის საცხოვრებელი მისამართი.</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
+                    <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'country_id','choices' => ['searchEnabled' => true ],'options' => $countries,'optionLabel' => 'name','optionValue' => 'id','placeholder' => 'ქვეყანა'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-select'); ?>
@@ -197,7 +246,7 @@
 <?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
 <?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal10476663a3271f48a2be05c903a73050 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal10476663a3271f48a2be05c903a73050 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Select::resolve(['name' => 'city_id','choices' => true,'optionLabel' => 'name','optionValue' => 'id','remoteUrl' => '`/cities/${form.country_id}`','placeholder' => 'ქალაქი'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-select'); ?>
@@ -217,7 +266,7 @@
 <?php $component = $__componentOriginal10476663a3271f48a2be05c903a73050; ?>
 <?php unset($__componentOriginal10476663a3271f48a2be05c903a73050); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'address'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -237,7 +286,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'postal_code'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -257,7 +306,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'phone'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -277,7 +326,7 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-                <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
+                    <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['name' => 'email'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
@@ -297,76 +346,76 @@
 <?php $component = $__componentOriginal690b64017277cbdd89bc2d788db21f28; ?>
 <?php unset($__componentOriginal690b64017277cbdd89bc2d788db21f28); ?>
 <?php endif; ?>
-            </div>
-            <hr class="border-t-1 separator border-[#070A141A]">
-            <h2 class="form-title vote-title">გთხოვთ, შეავსოთ კითხვარი</h2>
-            <div class="questionnaire first">
-                <div class="flex items-center mb-4 md:mb-0">
-                    <div
+                </div>
+                <hr class="border-t-1 separator border-[#070A141A]">
+                <h2 class="form-title vote-title">გთხოვთ, შეავსოთ კითხვარი</h2>
+                <div class="questionnaire first">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <div
                             class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
-                        01
+                            01
+                        </div>
+                        <label class="block form-label">
+                            გაიარეთ თუ არა რეგისტრაცია 26 ოქტომბრის არჩევნებში მონაწილეობის მიზნით?
+                        </label>
                     </div>
-                    <label class="block form-label">
-                        გაიარეთ თუ არა რეგისტრაცია 26 ოქტომბრის არჩევნებში მონაწილეობის მიზნით?
-                    </label>
+                    <div class="radio-input-cointainer">
+                        <div class="radio-input-item first">
+                            <label class="mr-2 radio-label">კი</label>
+                            <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                                   value="1">
+                        </div>
+                        <div class="radio-input-item">
+                            <label class="mr-2 radio-label">არა</label>
+                            <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
+                                   value="0">
+                        </div>
+                    </div>
                 </div>
-                <div class="radio-input-cointainer">
-                    <div class="radio-input-item first">
-                        <label class="mr-2 radio-label">კი</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
-                               value="1">
-                    </div>
-                    <div class="radio-input-item">
-                        <label class="mr-2 radio-label">არა</label>
-                        <input type="radio" class="radio-input" v-model="form.registered_to_participate_in_elections"
-                               value="0">
-                    </div>
-                </div>
-            </div>
-            <div v-if="form.registered_to_participate_in_elections == 0" class="mt-10">
-                <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                    <input type="checkbox" class="checkbox-input" v-model="form.registration_help">
-                    <span>
+                <div v-if="form.registered_to_participate_in_elections == 0" class="mt-10">
+                    <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
+                        <input type="checkbox" class="checkbox-input" v-model="form.registration_help">
+                        <span>
                        მინდა თქვენ დამარეგისტრიროთ
                     </span>
-                </div>
-                <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                    <input type="checkbox" class="checkbox-input" v-model="form.want_consultation">
-                    <span>
+                    </div>
+                    <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
+                        <input type="checkbox" class="checkbox-input" v-model="form.want_consultation">
+                        <span>
                        მინდა კონსულტაცია
                     </span>
-                </div>
-                <div class="flex items-center agremeent-container gap-[8px] mt-[24px] mb-[24px]">
-                    <input type="checkbox" class="checkbox-input" v-model="form.later_registration">
-                    <span>
+                    </div>
+                    <div class="flex items-center agremeent-container gap-[8px] mt-[24px] mb-[24px]">
+                        <input type="checkbox" class="checkbox-input" v-model="form.later_registration">
+                        <span>
                         ვაპირებ გავიარო რეგისტრაცია გარკვეული დროის შემდეგ
                     </span>
+                    </div>
                 </div>
-            </div>
-            <div class="questionnaire second">
-                <div class="flex items-center mb-4 md:mb-0 sm:block xs:block">
-                    <div
+                <div class="questionnaire second">
+                    <div class="flex items-center mb-4 md:mb-0 sm:block xs:block">
+                        <div
                             class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
-                        02
+                            02
+                        </div>
+                        <label class="block form-label">
+                            გესაჭიროებათ თუ არა საარჩევნო უბნამდე ტრანსპორტირებაში დახმარება?
+                        </label>
                     </div>
-                    <label class="block form-label">
-                        გესაჭიროებათ თუ არა საარჩევნო უბნამდე ტრანსპორტირებაში დახმარება?
-                    </label>
+                    <div class="radio-input-cointainer">
+                        <div class="radio-input-item first">
+                            <label class="mr-2 radio-label">კი</label>
+                            <input type="radio" class="radio-input" v-model="form.transportation_help" value="1">
+                        </div>
+                        <div class="radio-input-item">
+                            <label class="mr-2 radio-label">არა</label>
+                            <input type="radio" class="radio-input" v-model="form.transportation_help" value="0">
+                        </div>
+                    </div>
                 </div>
-                <div class="radio-input-cointainer">
-                    <div class="radio-input-item first">
-                        <label class="mr-2 radio-label">კი</label>
-                        <input type="radio" class="radio-input" v-model="form.transportation_help" value="1">
-                    </div>
-                    <div class="radio-input-item">
-                        <label class="mr-2 radio-label">არა</label>
-                        <input type="radio" class="radio-input" v-model="form.transportation_help" value="0">
-                    </div>
-                </div>
-            </div>
-            <div class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
-                <div class="file-upload-desktop file-upload">
-                    <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
+                <div class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
+                    <div class="file-upload-desktop file-upload">
+                        <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','showErrors' => false,'multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
@@ -386,18 +435,18 @@
 <?php $component = $__componentOriginal4cd41e82379e83253fe439725f650e27; ?>
 <?php unset($__componentOriginal4cd41e82379e83253fe439725f650e27); ?>
 <?php endif; ?>
-                </div>
-                <div>
-                    <div class="fileupload-title">
-                        ატვირთე ფოტო
                     </div>
-                    <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                        <input type="checkbox" class="checkbox-input" v-model="form.agreement">
-                        <Link modal href="<?php echo e(route('home.agreement')); ?>">
-                        თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
-                        </Link>
-                    </div>
-                    <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
+                    <div>
+                        <div class="fileupload-title">
+                            ატვირთე ფოტო
+                        </div>
+                        <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
+                            <input disabled type="checkbox" class="checkbox-input" v-model="form.agreement">
+                            <a @click.prevent="data.show_terms = true" href="#">
+                            თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის მიზნით
+                            </Link>
+                        </div>
+                        <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalfe8226cb659a7e2982b96ab926f35445 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Errors::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-errors'); ?>
@@ -407,9 +456,9 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Errors::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-                        <p v-if="errors.has('agreement')" class="text-red-600 text-sm mt-2 font-sans"
-                           v-text="errors.first('agreement')"/>
-                     <?php echo $__env->renderComponent(); ?>
+                            <p v-if="errors.has('agreement')" class="text-red-600 text-sm mt-2 font-sans"
+                               v-text="errors.first('agreement')"/>
+                         <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalfe8226cb659a7e2982b96ab926f35445)): ?>
 <?php $attributes = $__attributesOriginalfe8226cb659a7e2982b96ab926f35445; ?>
@@ -419,9 +468,9 @@
 <?php $component = $__componentOriginalfe8226cb659a7e2982b96ab926f35445; ?>
 <?php unset($__componentOriginalfe8226cb659a7e2982b96ab926f35445); ?>
 <?php endif; ?>
-                </div>
-                <div class="file-upload-mobile file-upload">
-                    <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
+                    </div>
+                    <div class="file-upload-mobile file-upload">
+                        <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
@@ -441,10 +490,10 @@
 <?php $component = $__componentOriginal4cd41e82379e83253fe439725f650e27; ?>
 <?php unset($__componentOriginal4cd41e82379e83253fe439725f650e27); ?>
 <?php endif; ?>
+                    </div>
                 </div>
-            </div>
 
-            <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
+                <?php if (isset($component)) { $__componentOriginalfe8226cb659a7e2982b96ab926f35445 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalfe8226cb659a7e2982b96ab926f35445 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Errors::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-errors'); ?>
@@ -454,12 +503,12 @@
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Errors::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-                <div v-for="(error, key) in errors" :key="key">
+                    <div v-for="(error, key) in errors" :key="key">
                     <span v-if="key.includes('images')" v-for="(errorItem, innerKey) in error" :key="innerKey">
                       <p class="text-red-600 text-sm mt-2 font-sans" v-text="errorItem"></p>
                     </span>
-                </div>
-             <?php echo $__env->renderComponent(); ?>
+                    </div>
+                 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalfe8226cb659a7e2982b96ab926f35445)): ?>
 <?php $attributes = $__attributesOriginalfe8226cb659a7e2982b96ab926f35445; ?>
@@ -469,8 +518,8 @@
 <?php $component = $__componentOriginalfe8226cb659a7e2982b96ab926f35445; ?>
 <?php unset($__componentOriginalfe8226cb659a7e2982b96ab926f35445); ?>
 <?php endif; ?>
-            <div class="submit-container">
-                <?php if (isset($component)) { $__componentOriginal2d975ce603f483bebe2dbee59a477e99 = $component; } ?>
+                <div class="submit-container">
+                    <?php if (isset($component)) { $__componentOriginal2d975ce603f483bebe2dbee59a477e99 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal2d975ce603f483bebe2dbee59a477e99 = $attributes; } ?>
 <?php $component = ProtoneMedia\Splade\Components\Form\Submit::resolve(['label' => 'გაგზავნა','spinner' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-submit'); ?>
@@ -490,8 +539,8 @@
 <?php $component = $__componentOriginal2d975ce603f483bebe2dbee59a477e99; ?>
 <?php unset($__componentOriginal2d975ce603f483bebe2dbee59a477e99); ?>
 <?php endif; ?>
-            </div>
-         <?php echo $__env->renderComponent(); ?>
+                </div>
+             <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a)): ?>
 <?php $attributes = $__attributesOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
@@ -501,7 +550,17 @@
 <?php $component = $__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a; ?>
 <?php unset($__componentOriginal8070f1a8f8bb4059ff6ff5b9ed074a0a); ?>
 <?php endif; ?>
-    </div>
+        </div>
+     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c)): ?>
+<?php $attributes = $__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
+<?php unset($__attributesOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginale6278a0588d6b97345ecb6e9bf149e6c)): ?>
+<?php $component = $__componentOriginale6278a0588d6b97345ecb6e9bf149e6c; ?>
+<?php unset($__componentOriginale6278a0588d6b97345ecb6e9bf149e6c); ?>
+<?php endif; ?>
 <?php $__env->stopSection(); ?>
 <?php if (isset($component)) { $__componentOriginal85e14d8f2eb9be41c54f3ef4caf4b63b = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal85e14d8f2eb9be41c54f3ef4caf4b63b = $attributes; } ?>

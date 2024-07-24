@@ -18,8 +18,7 @@ class FrontendRegistrationFormController
     {
         try {
             $this->registrationFormService->store($request);
-            Toast::title('„მადლობა!“')
-                ->autoDismiss(5);
+            session()->flash('message', '“თქვენი განაცხადი შევსებულია”');
             return redirect()->route('home.index');
         }catch (\Exception $e){
             Toast::warning()

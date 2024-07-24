@@ -619,3 +619,13 @@ html, body {
     font-size: 18px;
     margin-bottom: 12px;
 }
+#custom-modal{
+    font-family: "Avenir Next Georgian";
+}
+.success{
+    color: green;
+    text-align: center;
+}
+#terms-modal{
+   padding: 100px 0;
+}

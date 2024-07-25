@@ -467,8 +467,8 @@
                         <div class="fileupload-title">
                             ატვირთე ფოტო
                         </div>
-                        <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                            <input type="checkbox" disabled class="checkbox-input" v-model="form.agreement">
+                        <div @click.prevent="data.show_terms = true" class="flex items-center agremeent-container gap-[8px] mt-[24px]">
+                            <input @click.prevent="data.show_terms = true" type="checkbox" class="checkbox-input" v-model="form.agreement">
                             <a @click.prevent="data.show_terms = true" href="#">
                                 თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის
                                 მიზნით

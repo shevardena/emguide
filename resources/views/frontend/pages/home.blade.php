@@ -37,9 +37,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
                     <x-splade-input name="last_name" placeholder="გვარი ქართულად" class="form-control col-span-1"/>
                     <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control col-span-1"/>
-                    <x-splade-input type="number" pattern="\d{11}" name="personal_id"
-                                    placeholder="პირადი ნომერი (თერთმეტნიშნა)"
-                                    class="form-control col-span-1"/>
+                    <x-splade-input type="text" pattern="\d{11}" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)" class="form-control col-span-1" v-model.trim="form.personal_id"/>
                     <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი"
                                     class="form-control date col-span-1"/>
                     <x-splade-select name="gender" choices :choices="['searchEnabled' => true ]" :options="$genders"
@@ -191,6 +189,7 @@
     }
     });
     });
+
     const personalIdInput = document.querySelector('input[name="personal_id"]');
 
     personalIdInput.addEventListener('input', function() {
@@ -205,6 +204,5 @@
     // Set the cleaned and limited value back to the input
     this.value = value;
     });
-
     });
 </x-splade-script>

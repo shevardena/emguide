@@ -129,14 +129,14 @@
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'number','name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['type' => 'text','name' => 'personal_id'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['pattern' => '\d{11}','placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['pattern' => '\d{11}','placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control col-span-1','v-model.trim' => 'form.personal_id']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -610,6 +610,7 @@
     }
     });
     });
+
     const personalIdInput = document.querySelector('input[name="personal_id"]');
 
     personalIdInput.addEventListener('input', function() {
@@ -624,7 +625,6 @@
     // Set the cleaned and limited value back to the input
     this.value = value;
     });
-
     });
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

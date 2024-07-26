@@ -58,8 +58,12 @@
                     <x-splade-radio disabled name="transportation_help" value="0" label="No" />
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row mt-4">
-                <x-splade-file  name="images[]" multiple filepond preview class="w-full sm:w-1/2 mr-8 mt-4 sm:mt-0" label="Other Images" />
+            <div class="flex flex-wrap gap-4 mt-4">
+                @foreach($registration_form->images as $media)
+                    <a href="{{ $media->previewUrl }}" download class="inline-block">
+                        <img src="{{ $media->previewUrl }}" alt="Image" class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-32 h-32 object-cover">
+                    </a>
+                @endforeach
             </div>
             <div class="mt-6 mb-2">
                 <a class="p-3  rounded-sm text-white bg-blue-500" href="{{ route('registration_forms.index') }}">

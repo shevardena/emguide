@@ -503,27 +503,12 @@
 <?php endif; ?>
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row mt-4">
-                <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','multiple' => true,'filepond' => true,'preview' => true,'label' => 'Other Images'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('splade-file'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\File::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['disabled' => true,'class' => 'w-full sm:w-1/2 mr-8 mt-4 sm:mt-0']); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal4cd41e82379e83253fe439725f650e27)): ?>
-<?php $attributes = $__attributesOriginal4cd41e82379e83253fe439725f650e27; ?>
-<?php unset($__attributesOriginal4cd41e82379e83253fe439725f650e27); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal4cd41e82379e83253fe439725f650e27)): ?>
-<?php $component = $__componentOriginal4cd41e82379e83253fe439725f650e27; ?>
-<?php unset($__componentOriginal4cd41e82379e83253fe439725f650e27); ?>
-<?php endif; ?>
+            <div class="flex flex-wrap gap-4 mt-4">
+                <?php $__currentLoopData = $registration_form->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $media): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e($media->previewUrl); ?>" download class="inline-block">
+                        <img src="<?php echo e($media->previewUrl); ?>" alt="Image" class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-32 h-32 object-cover">
+                    </a>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div class="mt-6 mb-2">
                 <a class="p-3  rounded-sm text-white bg-blue-500" href="<?php echo e(route('registration_forms.index')); ?>">

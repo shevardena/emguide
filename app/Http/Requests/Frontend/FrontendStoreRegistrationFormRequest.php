@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
-use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
 
-class FrontendStoreRegistrationFormRequest extends FormRequest implements HasSpladeFileUploads
+class FrontendStoreRegistrationFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

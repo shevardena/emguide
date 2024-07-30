@@ -140,7 +140,7 @@
                 <div
                     class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
                     <div class="file-upload-desktop file-upload">
-                        <x-splade-file name="images[]" :show-errors="false" multiple placeholder="ატვირთვა"
+                        <x-splade-file name="images[]" accept="image/png, image/jpg, image/jpeg" :show-errors="false" multiple placeholder="ატვირთვა"
                                        :show-filename="true"/>
                     </div>
                     <div>
@@ -160,7 +160,8 @@
                         </x-splade-errors>
                     </div>
                     <div class="file-upload-mobile file-upload">
-                        <x-splade-file name="images[]" multiple placeholder="ატვირთვა" :show-filename="true"/>
+                        <x-splade-file name="images[]" accept="image/png, image/jpg, image/jpeg" :show-errors="false" multiple placeholder="ატვირთვა"
+                                       :show-filename="true"/>
                     </div>
                 </div>
 

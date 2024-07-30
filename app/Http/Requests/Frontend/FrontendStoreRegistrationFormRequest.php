@@ -47,7 +47,7 @@ class FrontendStoreRegistrationFormRequest extends FormRequest implements HasSpl
             'transportation_help' => 'required|boolean',
             'agreement' => 'accepted',
             'images' => 'required|array',
-            'images.*' => 'image',
+            'images.*' => 'mimes:jpeg,jpg,png',
             'images_order' => 'nullable|boolean'
         ];
     }

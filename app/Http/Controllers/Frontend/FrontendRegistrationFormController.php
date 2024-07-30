@@ -22,7 +22,7 @@ class FrontendRegistrationFormController
             return redirect()->route('home.index');
         }catch (\Exception $e){
             Toast::warning()
-                ->title('Error creating backend user parameter: ' . $e->getMessage())
+                ->title('Error while save form: ' . $e->getMessage())
                 ->autoDismiss(5);
             return redirect()->route('home.index');
         }

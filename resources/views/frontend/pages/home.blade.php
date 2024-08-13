@@ -47,7 +47,7 @@
                                      :options="$citizenships"
                                      option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                      class="form-control col-span-1"/>
-                    <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
+                    <x-splade-input type="hidden" name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
                                     class="form-control date col-span-1"/>
                     <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]"
                                      :options="$purpose_of_visits"
@@ -71,32 +71,7 @@
                 </div>
                 <hr class="border-t-1 separator border-[#070A141A]">
                 <h2 class="form-title vote-title">გთხოვთ, შეავსოთ კითხვარი</h2>
-                <div class="questionnaire first">
-                    <div class="flex items-center mb-4 md:mb-0">
-                        <div
-                            class="label-count sm:hidden bg-[#3453F9] text-white w-10 h-10 flex items-center justify-center rounded-full text-center font-semibold text-lg">
-                            01
-                        </div>
-                        <label class="block form-label">
-                            გაიარეთ თუ არა რეგისტრაცია 26 ოქტომბრის არჩევნებში მონაწილეობის მიზნით?
-                        </label>
-                    </div>
-                    <div class="radio-input-cointainer">
-                        <div class="radio-input-item first">
-                            <label class="mr-2 radio-label">კი</label>
-                            <input type="radio" class="radio-input"
-                                   v-model="form.registered_to_participate_in_elections"
-                                   value="1">
-                        </div>
-                        <div class="radio-input-item">
-                            <label class="mr-2 radio-label">არა</label>
-                            <input type="radio" class="radio-input"
-                                   v-model="form.registered_to_participate_in_elections"
-                                   value="0">
-                        </div>
-                    </div>
-                </div>
-                <div v-if="form.registered_to_participate_in_elections == 0" class="mt-10">
+                <div class="mt-10">
                     <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
                         <input type="checkbox" class="checkbox-input" v-model="form.registration_help">
                         <span>

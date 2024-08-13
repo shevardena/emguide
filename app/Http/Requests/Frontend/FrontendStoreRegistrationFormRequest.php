@@ -30,16 +30,16 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:male,female',
             'citizenship' => 'required|in:საქართველო',
-            'date_of_entry' => 'required|date',
+//            'date_of_entry' => 'required|date',
             'purpose_of_visit' => 'required|string|min:2|max:255',
             'country_id' => 'required|exists:countries,id',
             'city_id' => 'required|exists:cities,id',
             'address' => 'required|string|min:2|max:255',
             'postal_code' => 'required',
-            'email' => 'nullable|email|max:255',
+            'email' => 'required|email|max:255',
             'phone' => 'nullable|max:20',
 
-            'registered_to_participate_in_elections' => 'required|boolean',
+//            'registered_to_participate_in_elections' => 'required|boolean',
             'registration_help' => 'nullable|boolean',
             'consular_registration' => 'nullable|boolean',
             'later_registration' => 'nullable|boolean',
@@ -97,7 +97,8 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'transportation_help.boolean' => 'არასწორი მნიშვნელობა ტრანსპორტირების ველში',
             'agreement.accepted' => 'გთხოვთ, დაადასტურეთ რომ თანახმა ხართ პირადი მონაცემების გამოყენებაზე',
             'images.required' => 'სურათის ატვირთვა აუცილებელია',
-            'images.*.image' => 'დასაშვებია მხოლოდ სურათის ატვირთვა'
+            'images.*.image' => 'დასაშვებია მხოლოდ სურათის ატვირთვა',
+            'email.required' => 'შეავსეთ ელ.ფოსტის ველი'
         ];
     }
 }

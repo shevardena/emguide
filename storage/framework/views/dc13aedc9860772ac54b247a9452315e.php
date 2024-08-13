@@ -373,7 +373,7 @@
                 </div>
                 <hr class="border-t-1 separator border-[#070A141A]">
                 <h2 class="form-title vote-title">გთხოვთ, შეავსოთ კითხვარი</h2>
-                <div class="mt-10">
+                <div v-if="form.registered_to_participate_in_elections == 0" class="mt-10">
                     <div class="flex items-center agremeent-container gap-[8px] mt-[24px]">
                         <input type="checkbox" class="checkbox-input" v-model="form.registration_help">
                         <span>

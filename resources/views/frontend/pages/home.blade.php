@@ -47,7 +47,7 @@
                                      :options="$citizenships"
                                      option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                      class="form-control requiredx col-span-1"/>
-                    <x-splade-input name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
+                    <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
                                     class="form-control required date col-span-1"/>
                     <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]"
                                      :options="$purpose_of_visits"

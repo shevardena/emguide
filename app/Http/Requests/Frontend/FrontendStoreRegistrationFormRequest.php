@@ -30,7 +30,7 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:male,female',
             'citizenship' => 'required|in:საქართველო',
-//            'date_of_entry' => 'required|date',
+            'date_of_entry' => 'required|date',
             'purpose_of_visit' => 'required|string|min:2|max:255',
             'country_id' => 'required|exists:countries,id',
             'city_id' => 'required|exists:cities,id',

@@ -38,15 +38,12 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'postal_code' => 'required',
             'email' => 'required|email|max:255',
             'phone' => 'nullable|max:20',
-
-//            'registered_to_participate_in_elections' => 'required|boolean',
             'registration_help' => 'nullable|boolean',
             'consular_registration' => 'nullable|boolean',
             'later_registration' => 'nullable|boolean',
             'transportation_help' => 'required|boolean',
             'agreement' => 'accepted',
-            'images' => 'required|array',
-            'images.*' => 'mimes:jpeg,jpg,png',
+            'image' => 'required|mimes:jpeg,jpg,png',
             'images_order' => 'nullable|boolean'
         ];
     }
@@ -96,8 +93,8 @@ class FrontendStoreRegistrationFormRequest extends FormRequest
             'transportation_help.required' => 'გთხოვთ, მიუთითეთ თუ გესაჭიროებათ საარჩევნო უბნამდე ტრანსპორტირებაში დახმარება',
             'transportation_help.boolean' => 'არასწორი მნიშვნელობა ტრანსპორტირების ველში',
             'agreement.accepted' => 'გთხოვთ, დაადასტურეთ რომ თანახმა ხართ პირადი მონაცემების გამოყენებაზე',
-            'images.required' => 'სურათის ატვირთვა აუცილებელია',
-            'images.*.image' => 'დასაშვებია მხოლოდ სურათის ატვირთვა',
+            'image.required' => 'სურათის ატვირთვა აუცილებელია',
+            'image.mimes' => 'დასაშვებია მხოლოდ სურათის ატვირთვა',
             'email.required' => 'შეავსეთ ელ.ფოსტის ველი'
         ];
     }

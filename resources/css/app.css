@@ -289,7 +289,7 @@ p.text-red-600:before {
     padding: 44px;
     border-radius: 12px;
 }
-.file-upload-container .file-upload a{
+.file-upload-container .filepond--root{
     display: flex;
     width: 194px;
     padding: 63px 24px;
@@ -299,6 +299,9 @@ p.text-red-600:before {
     border-radius: 24px;
     border: 1px dashed #3453F9;
     background: rgba(52, 83, 249, 0.05);
+    margin-right: 24px;
+}
+.file-upload .filepond--drop-label label{
     color: #3453F9;
     text-align: center;
     leading-trim: both;
@@ -309,7 +312,13 @@ p.text-red-600:before {
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    margin-right: 24px;
+}
+.filepond--panel-root{
+    background-color: transparent!important;
+    background: transparent!important;
+    border: 0!important;
+    border-radius: 0!important;
+    box-shadow: none!important;
 }
 .fileupload-title{
     color: #070A14;
@@ -317,9 +326,26 @@ p.text-red-600:before {
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
     text-transform: uppercase;
     max-width: 185px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.file-upload .filepond--credits{
+    display: none!important;
+}
+.filepond--drop-label{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.filepond--drop-label.filepond--drop-label label {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    display: flex!important;
+    justify-content: center;
 }
 .checkbox-input{
     width: 24px;
@@ -629,3 +655,30 @@ html, body {
 #terms-modal{
    padding: 100px 0;
 }
+
+.required label {
+    position: relative; /* Ensure the containing element is positioned */
+}
+
+.required label::before {
+    content: "*";
+    color: red;
+    position: absolute;
+    left: 0.25rem; /* Adjust this value to position the asterisk */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none; /* Prevent interaction with the pseudo-element */
+}
+
+.required input {
+    padding-left: 1rem; /* Add padding to prevent overlap with the asterisk */
+}
+.filepond--credits{
+    display: none;
+}
+.filepond--root.filepond--hopper{
+    min-width: 160px;
+    margin-right: 12px;
+}
+

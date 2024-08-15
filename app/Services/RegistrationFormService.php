@@ -30,11 +30,15 @@ class RegistrationFormService
 
         try {
             $model = $this->registrationFormRepository->store($request->validated());
-            foreach($request->file('images') as $image){
-                $path = 'uploads/photos/' . $image->getClientOriginalName(); // Use the original name to avoid overwriting
-                Storage::disk('public')->put($path, file_get_contents($image->getRealPath()));
-                $model->addMedia(storage_path('app/public/'.$path))->toMediaCollection('images');
-            }
+            $image = $request->file('image');
+            $path = 'uploads/photos/' . $image->getClientOriginalName();
+            Storage::disk('public')->put($path, file_get_contents($image->getRealPath()));
+            $model->addMedia(storage_path('app/public/'.$path))->toMediaCollection('images');
+//            foreach($request->file('images') as $image){
+//                $path = 'uploads/photos/' . $image->getClientOriginalName(); // Use the original name to avoid overwriting
+//                Storage::disk('public')->put($path, file_get_contents($image->getRealPath()));
+//                $model->addMedia(storage_path('app/public/'.$path))->toMediaCollection('images');
+//            }
 
             DB::commit();
         } catch (\Exception $e) {

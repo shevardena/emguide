@@ -96,7 +96,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'გვარი ქართულად','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'გვარი ქართულად','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -116,7 +116,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'სახელი ქართულად','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'სახელი ქართულად','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -136,7 +136,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['pattern' => '\d{11}','placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control col-span-1','v-model.trim' => 'form.personal_id']); ?>
+<?php $component->withAttributes(['pattern' => '\d{11}','placeholder' => 'პირადი ნომერი (თერთმეტნიშნა)','class' => 'form-control required col-span-1','v-model.trim' => 'form.personal_id']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -156,7 +156,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'დაბადების თარიღი','class' => 'form-control date col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'დაბადების თარიღი','class' => 'form-control required date col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -176,7 +176,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
@@ -196,7 +196,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control requiredx col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
@@ -236,7 +236,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
@@ -259,7 +259,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
@@ -279,7 +279,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Select::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal10476663a3271f48a2be05c903a73050)): ?>
@@ -299,7 +299,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'მისამართი','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'მისამართი','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -319,7 +319,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'საფოსტო ინდექსი','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'საფოსტო ინდექსი','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -359,7 +359,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'ელ-ფოსტა','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'ელ-ფოსტა','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
@@ -419,7 +419,7 @@
                     <div class="file-upload-desktop file-upload">
                         <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','showErrors' => false,'multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'image','showErrors' => false,'filepond' => true,'preview' => true,'placeholder' => 'ატვირთვა','showFilename' => false] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -440,11 +440,13 @@
                     </div>
                     <div>
                         <div class="fileupload-title">
+                            <span class="text-red-600">*</span>
                             ატვირთე ფოტო
                         </div>
-                        <div @click.prevent="data.show_terms = true" class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                            <input @click.prevent="data.show_terms = true" type="checkbox" class="checkbox-input" v-model="form.agreement">
+                        <div @click.prevent="data.show_terms = true" class="flex items-center agremeent-container gap-[10px] mt-[24px]">
+                            <input @click.prevent="data.show_terms = true" type="checkbox" class="checkbox-input required" v-model="form.agreement">
                             <a @click.prevent="data.show_terms = true" href="#">
+                                <span class="text-red-600">*</span>
                                 თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის
                                 მიზნით
                             </a>
@@ -475,7 +477,7 @@
                     <div class="file-upload-mobile file-upload">
                         <?php if (isset($component)) { $__componentOriginal4cd41e82379e83253fe439725f650e27 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal4cd41e82379e83253fe439725f650e27 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'images[]','multiple' => true,'placeholder' => 'ატვირთვა','showFilename' => true] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\File::resolve(['name' => 'image','showErrors' => false,'filepond' => true,'preview' => true,'placeholder' => 'ატვირთვა','showFilename' => false] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-file'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -507,7 +509,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
                     <div v-for="(error, key) in errors" :key="key">
-                    <span v-if="key.includes('images')" v-for="(errorItem, innerKey) in error" :key="innerKey">
+                    <span v-if="key.includes('image')" v-for="(errorItem, innerKey) in error" :key="innerKey">
                       <p class="text-red-600 text-sm mt-2 font-sans" v-text="errorItem"></p>
                     </span>
                     </div>

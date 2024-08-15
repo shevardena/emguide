@@ -35,39 +35,39 @@
                 </div>
                 <h1 class="form-title">მიუთითეთ პერსონალური მონაცემები</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
-                    <x-splade-input name="last_name" placeholder="გვარი ქართულად" class="form-control col-span-1"/>
-                    <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control col-span-1"/>
-                    <x-splade-input type="text" pattern="\d{11}" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)" class="form-control col-span-1" v-model.trim="form.personal_id"/>
+                    <x-splade-input name="last_name" placeholder="გვარი ქართულად" class="form-control required col-span-1"/>
+                    <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control required col-span-1"/>
+                    <x-splade-input type="text" pattern="\d{11}" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)" class="form-control required col-span-1" v-model.trim="form.personal_id"/>
                     <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი"
-                                    class="form-control date col-span-1"/>
+                                    class="form-control required date col-span-1"/>
                     <x-splade-select name="gender" choices :choices="['searchEnabled' => true ]" :options="$genders"
                                      option-label="name" option-value="id" placeholder="სქესი"
-                                     class="form-control col-span-1"/>
+                                     class="form-control required col-span-1"/>
                     <x-splade-select name="citizenship" choices :choices="['searchEnabled' => true ]"
                                      :options="$citizenships"
                                      option-label="name" option-value="id" placeholder="მოქალაქეობა"
-                                     class="form-control col-span-1"/>
+                                     class="form-control requiredx col-span-1"/>
                     <x-splade-input type="hidden" name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
                                     class="form-control date col-span-1"/>
                     <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]"
                                      :options="$purpose_of_visits"
                                      option-label="name" option-value="id" placeholder="ვიზიტის მიზანი"
-                                     class="form-control col-span-1"/>
+                                     class="form-control required col-span-1"/>
                 </div>
                 <h1 class="form-title mt-[12px]">განმცხადებლის საცხოვრებელი მისამართი.</h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 contact-info">
                     <x-splade-select name="country_id" choices :choices="['searchEnabled' => true ]"
                                      :options="$countries"
                                      option-label="name" option-value="id" placeholder="ქვეყანა"
-                                     class="form-control col-span-1"/>
+                                     class="form-control required col-span-1"/>
                     <x-splade-select name="city_id" :choices="['searchEnabled' => true ]" option-label="name"
                                      option-value="id" choices remote-url="`/cities/${form.country_id}`"
                                      placeholder="ქალაქი"
-                                     class="form-control col-span-1"/>
-                    <x-splade-input name="address" placeholder="მისამართი" class="form-control col-span-1"/>
-                    <x-splade-input name="postal_code" placeholder="საფოსტო ინდექსი" class="form-control col-span-1"/>
+                                     class="form-control required col-span-1"/>
+                    <x-splade-input name="address" placeholder="მისამართი" class="form-control required col-span-1"/>
+                    <x-splade-input name="postal_code" placeholder="საფოსტო ინდექსი" class="form-control required col-span-1"/>
                     <x-splade-input name="phone" placeholder="ტელეფონის ნომერი" class="form-control col-span-1"/>
-                    <x-splade-input name="email" placeholder="ელ-ფოსტა" class="form-control col-span-1"/>
+                    <x-splade-input name="email" placeholder="ელ-ფოსტა" class="form-control required col-span-1"/>
                 </div>
                 <hr class="border-t-1 separator border-[#070A141A]">
                 <h2 class="form-title vote-title">გთხოვთ, შეავსოთ კითხვარი</h2>
@@ -115,16 +115,18 @@
                 <div
                     class="file-upload-container bg-white flex flex-col md:flex-row items-center justify-start mt-[54px]">
                     <div class="file-upload-desktop file-upload">
-                        <x-splade-file name="images[]" :show-errors="false" multiple placeholder="ატვირთვა"
-                                       :show-filename="true"/>
+                        <x-splade-file name="image" :show-errors="false" filepond preview placeholder="ატვირთვა"
+                                       :show-filename="false"/>
                     </div>
                     <div>
                         <div class="fileupload-title">
+                            <span class="text-red-600">*</span>
                             ატვირთე ფოტო
                         </div>
-                        <div @click.prevent="data.show_terms = true" class="flex items-center agremeent-container gap-[8px] mt-[24px]">
-                            <input @click.prevent="data.show_terms = true" type="checkbox" class="checkbox-input" v-model="form.agreement">
+                        <div @click.prevent="data.show_terms = true" class="flex items-center agremeent-container gap-[10px] mt-[24px]">
+                            <input @click.prevent="data.show_terms = true" type="checkbox" class="checkbox-input required" v-model="form.agreement">
                             <a @click.prevent="data.show_terms = true" href="#">
+                                <span class="text-red-600">*</span>
                                 თანახმა ვარ, საკუთარი პირადი მონაცემები გამოყენებული იქნას საარჩევნო სიაში რეგისტრაციის
                                 მიზნით
                             </a>
@@ -135,13 +137,14 @@
                         </x-splade-errors>
                     </div>
                     <div class="file-upload-mobile file-upload">
-                        <x-splade-file name="images[]" multiple placeholder="ატვირთვა" :show-filename="true"/>
+                        <x-splade-file name="image" :show-errors="false"  filepond preview placeholder="ატვირთვა"
+                                       :show-filename="false"/>
                     </div>
                 </div>
 
                 <x-splade-errors>
                     <div v-for="(error, key) in errors" :key="key">
-                    <span v-if="key.includes('images')" v-for="(errorItem, innerKey) in error" :key="innerKey">
+                    <span v-if="key.includes('image')" v-for="(errorItem, innerKey) in error" :key="innerKey">
                       <p class="text-red-600 text-sm mt-2 font-sans" v-text="errorItem"></p>
                     </span>
                     </div>

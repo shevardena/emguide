@@ -38,7 +38,7 @@
                     <x-splade-input name="last_name" placeholder="გვარი ქართულად" class="form-control required col-span-1"/>
                     <x-splade-input name="first_name" placeholder="სახელი ქართულად" class="form-control required col-span-1"/>
                     <x-splade-input type="text" pattern="\d{11}" name="personal_id" placeholder="პირადი ნომერი (თერთმეტნიშნა)" class="form-control required col-span-1" v-model.trim="form.personal_id"/>
-                    <x-splade-input date name="date_of_birth" placeholder="დაბადების თარიღი"
+                    <x-splade-input :date="['maxDate' => '2006-12-31']" name="date_of_birth" placeholder="დაბადების თარიღი"
                                     class="form-control required date col-span-1"/>
                     <x-splade-select name="gender" choices :choices="['searchEnabled' => true ]" :options="$genders"
                                      option-label="name" option-value="id" placeholder="სქესი"
@@ -47,7 +47,7 @@
                                      :options="$citizenships"
                                      option-label="name" option-value="id" placeholder="მოქალაქეობა"
                                      class="form-control requiredx col-span-1"/>
-                    <x-splade-input date name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
+                    <x-splade-input :date="['maxDate' => 'today']" name="date_of_entry" placeholder="ქვეყანაში პირველად შემოსვლის თარიღი"
                                     class="form-control required date col-span-1"/>
                     <x-splade-select name="purpose_of_visit" choices :choices="['searchEnabled' => true ]"
                                      :options="$purpose_of_visits"
@@ -66,7 +66,7 @@
                                      class="form-control required col-span-1"/>
                     <x-splade-input name="address" placeholder="მისამართი" class="form-control required col-span-1"/>
                     <x-splade-input name="postal_code" placeholder="საფოსტო ინდექსი" class="form-control required col-span-1"/>
-                    <x-splade-input name="phone" placeholder="ტელეფონის ნომერი" class="form-control col-span-1"/>
+                    <x-splade-input name="phone" placeholder="ტელეფონის ნომერი" class="form-control required col-span-1"/>
                     <x-splade-input name="email" placeholder="ელ-ფოსტა" class="form-control required col-span-1"/>
                 </div>
                 <hr class="border-t-1 separator border-[#070A141A]">

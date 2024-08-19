@@ -149,7 +149,7 @@
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => true,'name' => 'date_of_birth'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => ['maxDate' => '2006-12-31'],'name' => 'date_of_birth'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -209,7 +209,7 @@
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginal690b64017277cbdd89bc2d788db21f28 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal690b64017277cbdd89bc2d788db21f28 = $attributes; } ?>
-<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => true,'name' => 'date_of_entry'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = ProtoneMedia\Splade\Components\Form\Input::resolve(['date' => ['maxDate' => 'today'],'name' => 'date_of_entry'] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('splade-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -339,7 +339,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\ProtoneMedia\Splade\Components\Form\Input::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['placeholder' => 'ტელეფონის ნომერი','class' => 'form-control col-span-1']); ?>
+<?php $component->withAttributes(['placeholder' => 'ტელეფონის ნომერი','class' => 'form-control required col-span-1']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal690b64017277cbdd89bc2d788db21f28)): ?>
